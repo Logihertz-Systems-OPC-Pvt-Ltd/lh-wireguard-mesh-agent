@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test (Go 1.22)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+          check-latest: true
+
+      - name: Verify Code Formatting (gofmt)
+        run: |
+          diffs=$(gofmt -s -l .)
+          if [ -n "$diffs" ]; then
+            echo "Unformatted Go files detected:"
+            echo "$diffs"
+            exit 1
+          fi
+
+      - name: Go Vet Static Analysis
+        run: go vet ./...
+
+      - name: Run Test Suite with Race Detector
+        run: go test -v -race ./...
+
+      - name: Compile CLI Binary
+        run: |
+          mkdir -p bin
+          go build -v -o bin/lh-wg-mesh ./cmd/lh-wg-mesh
+
+      - name: CLI Smoke Tests
+        run: |
+          ./bin/lh-wg-mesh --version
+          ./bin/lh-wg-mesh --help
+          ./bin/lh-wg-mesh scan fixtures/hardened_wgmesh_policy.json --format table
+          ./bin/lh-wg-mesh scan fixtures/hardened_wgmesh_policy.json --format json
+          ./bin/lh-wg-mesh scan fixtures/hardened_wgmesh_policy.json --format sarif
+          ./bin/lh-wg-mesh gen-mesh fixtures/sample_enclave_nodes.json --epoch 1
+          ./bin/lh-wg-mesh check-routes fixtures/sample_enclave_nodes.json
+          ./bin/lh-wg-mesh verify-beacon --node-id node-ci-test --seq 1

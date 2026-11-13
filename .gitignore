@@ -1,0 +1,7 @@
+/bin/
+/dist/
+/lh-wg-mesh
+*.tar.gz
+coverage.out
+*.log
+*.tmp

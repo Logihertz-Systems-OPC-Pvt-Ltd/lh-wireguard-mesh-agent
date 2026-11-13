@@ -1,0 +1,11 @@
+Logihertz WireGuard Mesh Agent (lh-wireguard-mesh-agent)
+Copyright (c) 2026 Logihertz Systems (OPC) Private Limited.
+All rights reserved.
+
+Developer & Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://logihertz.com/
+Repository: https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-wireguard-mesh-agent
+
+This product includes software engineered by Logihertz Systems (OPC) Private Limited
+for air-gapped peer-to-peer WireGuard mesh coordination, pairwise post-quantum
+preshared key derivation, and sovereign network security auditing.

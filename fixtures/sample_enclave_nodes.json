@@ -1,0 +1,44 @@
+{
+  "enclave_id": "ENCLAVE-INDUSTRIAL-CORE-01",
+  "master_secret_hex": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "epoch": 1,
+  "mtu": 1420,
+  "nodes": [
+    {
+      "id": "node-plc-01",
+      "wg_public_key": "x58/r8oWkG55o6uD4F1M02n8mK1Lq9s6v8b1x3z5y7w=",
+      "wg_private_key": "u43/q7nVjF44n5tC3E0L91m7lJ0Kp8r5u7a0w2y4x6v=",
+      "tunnel_ip": "10.99.0.1/32",
+      "lan_endpoint": "192.168.10.11:51820",
+      "listen_port": 51820,
+      "allowed_ips": ["10.99.0.1/32"]
+    },
+    {
+      "id": "node-scada-hmi",
+      "wg_public_key": "y69/s9pXlH66p7vE5G2N13o9nL2Mr0t7w9c2y4z6z8x=",
+      "wg_private_key": "v54/r8oWkG55o6uD4F1M02n8mK1Lq9s6v8b1x3z5y7w=",
+      "tunnel_ip": "10.99.0.2/32",
+      "lan_endpoint": "192.168.10.12:51820",
+      "listen_port": 51820,
+      "allowed_ips": ["10.99.0.2/32"]
+    },
+    {
+      "id": "node-robot-arm",
+      "wg_public_key": "z70/t0qYmI77q8wF6H3O24p0oM3Ns1u8x0d3z5a7a9y=",
+      "wg_private_key": "w65/s9pXlH66p7vE5G2N13o9nL2Mr0t7w9c2y4z6z8x=",
+      "tunnel_ip": "10.99.0.3/32",
+      "lan_endpoint": "192.168.10.13:51820",
+      "listen_port": 51820,
+      "allowed_ips": ["10.99.0.3/32"]
+    },
+    {
+      "id": "node-historian",
+      "wg_public_key": "a81/u1rZnJ88r9xG7I4P35q1pN4Ot2v9y1e4a6b8b0z=",
+      "wg_private_key": "x76/t0qYmI77q8wF6H3O24p0oM3Ns1u8x0d3z5a7a9y=",
+      "tunnel_ip": "10.99.0.4/32",
+      "lan_endpoint": "192.168.10.14:51820",
+      "listen_port": 51820,
+      "allowed_ips": ["10.99.0.4/32"]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Package: lh-wireguard-mesh-agent
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://www.logihertz.com
+Description: lh-wg-mesh - Symmetric Pairwise Post-Quantum Pre-Shared Key Derivation
+ Air-gapped Peer-to-Peer WireGuard mesh coordinator synthesizing N(N-1)/2 full-mesh configs with RFC 7748 Curve25519 key clamping, symmetric pairwise Post-Quantum PSKs, Ed25519 discovery beacons, and /32 route-hijack guards.

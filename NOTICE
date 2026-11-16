@@ -1,11 +1,126 @@
-Logihertz WireGuard Mesh Agent (lh-wireguard-mesh-agent)
-Copyright (c) 2026 Logihertz Systems (OPC) Private Limited.
-All rights reserved.
+================================================================================
+NOTICE — APACHE LICENSE 2.0 SECTION 4(d) ATTRIBUTION & PROVENANCE STATEMENT
+================================================================================
 
-Developer & Maintainer: Sameer Tawade <ops@logihertz.com>
-Homepage: https://logihertz.com/
-Repository: https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-wireguard-mesh-agent
+Project Name          : lh-wireguard-mesh-agent
+CLI Executable        : lh-wg-mesh
+Release Baseline      : v0.1.0
+Primary Language      : Go 1.22+ Standard Library
+Technical Domain      : Air-Gapped P2P WireGuard Mesh Coordinator
+Rule Identifier Range : LH-WGM-001 through LH-WGM-010
+SPDX License ID       : Apache-2.0
+Source Repository     : https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-wireguard-mesh-agent
 
-This product includes software engineered by Logihertz Systems (OPC) Private Limited
-for air-gapped peer-to-peer WireGuard mesh coordination, pairwise post-quantum
-preshared key derivation, and sovereign network security auditing.
+--------------------------------------------------------------------------------
+1. PRIMARY COPYRIGHT & AUTHORSHIP ATTRIBUTION
+--------------------------------------------------------------------------------
+
+lh-wireguard-mesh-agent
+Copyright (c) 2025-2026 Logihertz Systems (OPC) Private Limited.
+All Rights Reserved.
+
+This software product (lh-wireguard-mesh-agent) was conceived, architected, engineered,
+and developed by:
+
+  * Principal Architect & Author : Sameer Tawade
+  * Role                         : Creator, Founder, Director & Sole Developer
+  * Issuing Organization         : Logihertz Systems (OPC) Private Limited
+  * Corporate Identity (CIN)     : U72100MH2025OPC463857 (RoC Mumbai, India)
+  * Tax Registration (GSTIN)     : 27AAGCL6394P1ZL
+  * Registered Office            : Shivshakti Chawl, Patkar, Mumbai - 400078,
+                                   Maharashtra, India
+  * Official Website             : https://www.logihertz.com
+  * Engineering & Ops Contact    : ops@logihertz.com
+  * Security & Vulnerability     : security@logihertz.com
+
+--------------------------------------------------------------------------------
+2. STANDALONE PROJECT SCOPE & ARCHITECTURAL SUMMARY
+--------------------------------------------------------------------------------
+
+lh-wireguard-mesh-agent (`lh-wg-mesh`) is an independent, standalone open-source project
+engineered by Logihertz Systems (OPC) Private Limited.
+
+Architectural Focus:
+  Air-gapped peer-to-peer WireGuard mesh coordinator implementing RFC 7748
+  Curve25519 key clamping, symmetric pairwise HMAC-SHA256 Post-Quantum
+  PresharedKey (Noise_IKpsk2) derivation, Ed25519-signed LAN discovery
+  beacons, full-mesh N(N-1)/2 configuration synthesis, AllowedIPs route-hijack
+  detection, and a 10-rule mesh posture auditor.
+
+Deterministic Posture Auditing & Reporting:
+  Evaluates target configurations, artifacts, or telemetry against ten normative
+  verification rules (LH-WGM-001 through LH-WGM-010), computes a
+  deterministic 0-100 posture score:
+    S_posture = max(0, 100 - (25 * CRITICAL + 10 * HIGH + 4 * MEDIUM + 1 * LOW))
+  and exports results in ANSI Terminal Table, Canonical JSON, and OASIS SARIF
+  v2.1.0 formats with deterministic CI/CD exit codes (0 = Pass, 1 = Policy
+  Violation, 2 = Execution/Parse Error).
+
+--------------------------------------------------------------------------------
+3. CLEAN-ROOM & ZERO THIRD-PARTY RUNTIME DEPENDENCY ATTESTATION
+--------------------------------------------------------------------------------
+
+lh-wireguard-mesh-agent is a 100% clean-room implementation written by Sameer Tawade at
+Logihertz Systems (OPC) Private Limited.
+
+  * Zero External Runtime Dependencies: All core parsers, mathematical engines,
+    cryptographic/signal-processing primitives, rule evaluators, and SARIF
+    exporters are implemented strictly using the native Go 1.22+ Standard Library
+    standard library.
+  * Supply-Chain Provenance: This package embeds zero third-party vendor code
+    fragments, zero external runtime packages, and zero telemetry beacons,
+    enabling deterministic, offline, air-gapped verification and deployment.
+
+--------------------------------------------------------------------------------
+4. NORMATIVE STANDARDS, RFCS & SPECIFICATIONS REFERENCED
+--------------------------------------------------------------------------------
+
+lh-wireguard-mesh-agent implements or validates compliance against the following public
+engineering standards, RFCs, and security specifications:
+
+  * WireGuard Cryptographic Network Tunnel Protocol (Noise_IKpsk2_25519_ChaChaPoly_BLAKE2s), IETF RFC 7748 (Curve25519), RFC 8032 (Ed25519)
+  * OASIS Static Analysis Results Interchange Format (SARIF) Version 2.1.0
+  * MITRE Common Weakness Enumeration (CWE) Taxonomy
+  * IETF BCP 14 (RFC 2119 & RFC 8174) Normative Requirement Levels
+
+All referenced standards, RFCs, and specifications remain the copyright and
+intellectual property of their respective standards bodies (IETF, NIST, ISO/IEC,
+IEEE, OASIS, OWASP, MITRE, CIS, PCI SSC, ISRO, 3GPP, LoRa Alliance, TCG).
+
+--------------------------------------------------------------------------------
+5. APACHE LICENSE 2.0 SECTION 4(d) REDISTRIBUTION & PATENT NOTICE
+--------------------------------------------------------------------------------
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file or the lh-wireguard-mesh-agent software except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Pursuant to Section 4(d) of the Apache License, Version 2.0, if you reproduce
+and distribute copies of lh-wireguard-mesh-agent or Derivative Works thereof in any medium,
+with or without modifications, in Source or Object form, you MUST retain, in
+the Source form of any Derivative Works that you distribute, all copyright,
+patent, trademark, and attribution notices from this NOTICE file, and you MUST
+include a readable copy of the attribution notices contained within this NOTICE
+file alongside any Object form distribution.
+
+Subject to the terms and conditions of the License, each Contributor hereby
+grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free,
+irrevocable copyright and patent license as set forth in Sections 2 and 3 of
+the Apache License, Version 2.0.
+
+--------------------------------------------------------------------------------
+6. TRADEMARK & CORPORATE IDENTITY NOTICE (APACHE-2.0 SECTION 6)
+--------------------------------------------------------------------------------
+
+Per Section 6 of the Apache License, Version 2.0, this License does not grant
+permission to use the trade names, trademarks, service marks, or product names
+of the Licensor, except as required for reasonable and customary use in
+describing the origin of the Work and reproducing the content of this NOTICE
+file.
+
+"Logihertz", "Logihertz Systems", and the Logihertz emblem are trademarks and
+trade names of Logihertz Systems (OPC) Private Limited in India and other
+jurisdictions.
+================================================================================

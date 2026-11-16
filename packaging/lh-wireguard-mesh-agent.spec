@@ -42,4 +42,4 @@ install -m 0644 NOTICE %{buildroot}%{_docdir}/%{name}/NOTICE
 
 %changelog
 * Mon Nov 16 2026 Sameer Tawade <ops@logihertz.com> - 0.1.0-1
-- Initial production release for Logihertz Systems Ecosystem and STRUCT OS.
+- Initial production release for lh-wireguard-mesh-agent.
